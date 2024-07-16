@@ -5,6 +5,8 @@ import com.bets.App.Models.UserModel;
 import com.bets.App.Repositories.UserRepository;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.Date;
+
 public class CreateUserService {
 
     @NotNull
@@ -20,6 +22,7 @@ public class CreateUserService {
         userModel.setRank(userDTO.rank());
         userModel.setUsername(userDTO.username());
         userModel.setIdStr(userDTO.idStr());
+        userModel.setCreatedAt(new Date());
 
         userModel = this.repository.save(userModel);
 

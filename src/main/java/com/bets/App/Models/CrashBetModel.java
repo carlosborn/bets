@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "crash_bet")
+@Table(name = "crash_bets")
 public class CrashBetModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,11 +35,11 @@ public class CrashBetModel {
     @Column(name = "status")
     private String status;
 
-    @ManyToOne(targetEntity = UserModel.class, cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = UserModel.class)
     @JoinColumn(name = "user_id")
     private UserModel userModel;
 
-    @ManyToOne(targetEntity = CrashRoundModel.class, cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = CrashRoundModel.class)
     @JoinColumn(name = "round_id")
     private CrashRoundModel crashRoundModel;
 }
